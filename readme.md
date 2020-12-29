@@ -1,4 +1,4 @@
-# hexagon architecture evaluation
+# hexagonal architecture evaluation
 [![Build](https://github.com/cbuschka/hexarch-eval/workflows/build/badge.svg)](https://github.com/cbuschka/hexarch-eval)
 
 ### example implementation of hexagonal architecture style with spring jpa
