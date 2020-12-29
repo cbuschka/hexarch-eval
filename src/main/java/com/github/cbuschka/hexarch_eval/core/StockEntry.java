@@ -15,7 +15,7 @@ public class StockEntry
 
 	private int amount;
 
-	private Date lastModifiedAt;
+	private Date stockUpdatedAt;
 
 	public StockEntry(String supplierNo, String itemNo)
 	{
@@ -24,12 +24,12 @@ public class StockEntry
 
 	public void update(int amount, Date lastModifiedAt) throws StaleStockDataException
 	{
-		if (this.lastModifiedAt != null && this.lastModifiedAt.after(lastModifiedAt))
+		if (this.stockUpdatedAt != null && this.stockUpdatedAt.after(lastModifiedAt))
 		{
 			throw new StaleStockDataException();
 		}
 
 		this.amount = amount;
-		this.lastModifiedAt = lastModifiedAt;
+		this.stockUpdatedAt = lastModifiedAt;
 	}
 }

@@ -11,14 +11,15 @@ public class UpdateStockUseCase
 		this.stockRepository = stockRepository;
 	}
 
-	public void updateStock(String supplierNo, String itemNo, int amount, Date stockAt)
+	public void updateStock(String supplierNo, String itemNo, int amount, Date updatedAt)
 	{
 		StockEntry stockEntry = this.stockRepository.findBySupplierNoAndItemNo(supplierNo, itemNo)
-				.orElseGet(() -> this.stockRepository.create(supplierNo, itemNo));
+				.orElseGet(() -> new StockEntry(supplierNo, itemNo));
 
 		try
 		{
-			stockEntry.update(amount, stockAt);
+			stockEntry.update(amount, updatedAt);
+			stockRepository.save(stockEntry);
 		}
 		catch (StaleStockDataException ex)
 		{

@@ -1,14 +1,29 @@
 package com.github.cbuschka.hexarch_eval.infrastructure;
 
 import com.github.cbuschka.hexarch_eval.core.UpdateStockUseCase;
+import com.github.cbuschka.hexarch_eval.secondary.JpaStockRepository;
+import com.github.cbuschka.hexarch_eval.secondary.JpaStockRepositoryAdapter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Configuration
+@EnableJpaRepositories(basePackageClasses = JpaStockRepository.class)
 public class StockConfig
 {
+	@Autowired
+	private JpaStockRepository jpaStockRepository;
+
 	@Bean
-	public UpdateStockUseCase updateStockUseCase() {
-		throw new Error("not implemented yet");
+	public UpdateStockUseCase updateStockUseCase()
+	{
+		return new UpdateStockUseCase(jpaStockRepositoryAdapter());
+	}
+
+	@Bean
+	protected JpaStockRepositoryAdapter jpaStockRepositoryAdapter()
+	{
+		return new JpaStockRepositoryAdapter(jpaStockRepository);
 	}
 }
