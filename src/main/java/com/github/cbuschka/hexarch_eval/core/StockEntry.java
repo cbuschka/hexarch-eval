@@ -22,14 +22,14 @@ public class StockEntry
 		this(supplierNo, itemNo, 0, null);
 	}
 
-	public void update(int amount, Date lastModifiedAt) throws StaleStockDataException
+	public void update(int amount, Date stockUpdatedAt) throws StaleStockDataException
 	{
-		if (this.stockUpdatedAt != null && this.stockUpdatedAt.after(lastModifiedAt))
+		if (this.stockUpdatedAt != null && this.stockUpdatedAt.after(stockUpdatedAt))
 		{
 			throw new StaleStockDataException();
 		}
 
 		this.amount = amount;
-		this.stockUpdatedAt = lastModifiedAt;
+		this.stockUpdatedAt = stockUpdatedAt;
 	}
 }
