@@ -12,21 +12,14 @@ public class UpdateStockUseCase
 		this.stockUpdatedNotificationSender = stockUpdatedNotificationSender;
 	}
 
-	public void updateStock(UpdateStockCommand command)
+	public void updateStock(UpdateStockCommand command) throws StaleStockDataException
 	{
 		StockEntry stockEntry = this.stockRepository.findBySupplierNoAndItemNo(command.getSupplierNo(), command.getItemNo())
 				.orElseGet(() -> new StockEntry(command.getSupplierNo(), command.getItemNo()));
 
-		try
-		{
-			stockEntry.update(command.getAmount(), command.getUpdatedAt());
+		stockEntry.update(command.getAmount(), command.getUpdatedAt());
 
-			stockUpdatedNotificationSender.notifyStockEntryUpdated(command.getSupplierNo(), command.getItemNo(), command.getAmount(), command.getUpdatedAt());
-			stockRepository.save(stockEntry);
-		}
-		catch (StaleStockDataException ex)
-		{
-			// update skipped
-		}
+		stockUpdatedNotificationSender.notifyStockEntryUpdated(command.getSupplierNo(), command.getItemNo(), command.getAmount(), command.getUpdatedAt());
+		stockRepository.save(stockEntry);
 	}
 }
