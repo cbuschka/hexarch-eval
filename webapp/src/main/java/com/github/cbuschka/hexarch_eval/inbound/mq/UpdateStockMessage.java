@@ -1,5 +1,6 @@
 package com.github.cbuschka.hexarch_eval.inbound.mq;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -7,6 +8,7 @@ import lombok.Setter;
 import java.util.Date;
 
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 public class UpdateStockMessage
