@@ -18,5 +18,14 @@ mvn verify
 * [...secondary](./src/main/java/com/github/cbuschka/hexarch_eval/secondary/) - secondary actors, also called drivens; a jpa repository
 * [...infrastructure](./src/main/java/com/github/cbuschka/hexarch_eval/infrastructure/) - spring plumbing
 
+## Questions
+* Is introduction of an interface (compile time dependency) really inversion of the dependency direction? Or is an interface more than a code reference?
+* Do I really need the extra interfaces introduced for a single implementation? Ist referencing the interface of the implementation ok?
+* How do I prevent copying objects because of port boundaries?
+* What prevents me from building a non-anemic domain model with JPA?
+* Are spring data JPA repository and entity with annotations part of core domain?
+* Is an isolated core domain with methods and data combined really worth the hassle? What's about functional decomposition into use cases, what keeps the classes small?
+* Is hexegonal architecture overkill? Especially in the context of small microservices?
+
 ## License
 [MIT](./license.txt)
