@@ -1,7 +1,5 @@
 package com.github.cbuschka.hexarch_eval.domain;
 
-import java.util.Date;
-
 public class UpdateStockUseCase
 {
 	private StockRepository stockRepository;
@@ -14,16 +12,16 @@ public class UpdateStockUseCase
 		this.stockUpdatedNotificationSender = stockUpdatedNotificationSender;
 	}
 
-	public void updateStock(String supplierNo, String itemNo, int amount, Date updatedAt)
+	public void updateStock(UpdateStockCommand command)
 	{
-		StockEntry stockEntry = this.stockRepository.findBySupplierNoAndItemNo(supplierNo, itemNo)
-				.orElseGet(() -> new StockEntry(supplierNo, itemNo));
+		StockEntry stockEntry = this.stockRepository.findBySupplierNoAndItemNo(command.getSupplierNo(), command.getItemNo())
+				.orElseGet(() -> new StockEntry(command.getSupplierNo(), command.getItemNo()));
 
 		try
 		{
-			stockEntry.update(amount, updatedAt);
+			stockEntry.update(command.getAmount(), command.getUpdatedAt());
 
-			stockUpdatedNotificationSender.notifyStockEntryUpdated(supplierNo, itemNo, amount, updatedAt);
+			stockUpdatedNotificationSender.notifyStockEntryUpdated(command.getSupplierNo(), command.getItemNo(), command.getAmount(), command.getUpdatedAt());
 			stockRepository.save(stockEntry);
 		}
 		catch (StaleStockDataException ex)
