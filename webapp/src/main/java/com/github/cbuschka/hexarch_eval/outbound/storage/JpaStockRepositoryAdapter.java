@@ -20,6 +20,12 @@ public class JpaStockRepositoryAdapter implements StockRepository
 	}
 
 	@Override
+	public StockEntry create(String supplierNo, String itemNo)
+	{
+		return new StockEntry(supplierNo, itemNo);
+	}
+
+	@Override
 	public Optional<StockEntry> findBySupplierNoAndItemNo(String supplierNo, String itemNo)
 	{
 		return this.jpaStockRepository.findBySupplierNoAndItemNo(supplierNo, itemNo)

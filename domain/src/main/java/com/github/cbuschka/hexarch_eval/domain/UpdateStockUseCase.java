@@ -15,7 +15,7 @@ public class UpdateStockUseCase
 	public void updateStock(UpdateStockCommand command) throws StaleStockDataException
 	{
 		StockEntry stockEntry = this.stockRepository.findBySupplierNoAndItemNo(command.getSupplierNo(), command.getItemNo())
-				.orElseGet(() -> new StockEntry(command.getSupplierNo(), command.getItemNo()));
+				.orElseGet(() -> this.stockRepository.create(command.getSupplierNo(), command.getItemNo()));
 
 		stockEntry.update(command.getAmount(), command.getUpdatedAt());
 
