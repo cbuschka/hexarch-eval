@@ -1,4 +1,4 @@
-package com.github.cbuschka.hexarch_eval.secondary;
+package com.github.cbuschka.hexarch_eval.secondary.storage;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

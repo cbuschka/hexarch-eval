@@ -1,8 +1,10 @@
 package com.github.cbuschka.hexarch_eval.infrastructure;
 
+import com.github.cbuschka.hexarch_eval.core.StockUpdatedNotificationSender;
 import com.github.cbuschka.hexarch_eval.core.UpdateStockUseCase;
-import com.github.cbuschka.hexarch_eval.secondary.JpaStockRepository;
-import com.github.cbuschka.hexarch_eval.secondary.JpaStockRepositoryAdapter;
+import com.github.cbuschka.hexarch_eval.secondary.notification.DummyMqStockUpdatedNotificationSender;
+import com.github.cbuschka.hexarch_eval.secondary.storage.JpaStockRepository;
+import com.github.cbuschka.hexarch_eval.secondary.storage.JpaStockRepositoryAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,7 +20,13 @@ public class StockConfig
 	@Bean
 	public UpdateStockUseCase updateStockUseCase()
 	{
-		return new UpdateStockUseCase(jpaStockRepositoryAdapter());
+		return new UpdateStockUseCase(jpaStockRepositoryAdapter(), stockUpdatedNotifier());
+	}
+
+	@Bean
+	protected StockUpdatedNotificationSender stockUpdatedNotifier()
+	{
+		return new DummyMqStockUpdatedNotificationSender();
 	}
 
 	@Bean

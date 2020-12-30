@@ -1,4 +1,4 @@
-package com.github.cbuschka.hexarch_eval.primary;
+package com.github.cbuschka.hexarch_eval.primary.mq;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,7 +9,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Getter
 @Setter
-public class UpdateStockRequest
+public class UpdateStockMessage
 {
 	private String supplierNo;
 

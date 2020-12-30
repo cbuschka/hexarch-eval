@@ -1,4 +1,4 @@
-package com.github.cbuschka.hexarch_eval.secondary;
+package com.github.cbuschka.hexarch_eval.secondary.storage;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

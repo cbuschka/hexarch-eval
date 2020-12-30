@@ -6,9 +6,12 @@ public class UpdateStockUseCase
 {
 	private StockRepository stockRepository;
 
-	public UpdateStockUseCase(StockRepository stockRepository)
+	private StockUpdatedNotificationSender stockUpdatedNotificationSender;
+
+	public UpdateStockUseCase(StockRepository stockRepository, StockUpdatedNotificationSender stockUpdatedNotificationSender)
 	{
 		this.stockRepository = stockRepository;
+		this.stockUpdatedNotificationSender = stockUpdatedNotificationSender;
 	}
 
 	public void updateStock(String supplierNo, String itemNo, int amount, Date updatedAt)
@@ -19,6 +22,8 @@ public class UpdateStockUseCase
 		try
 		{
 			stockEntry.update(amount, updatedAt);
+
+			stockUpdatedNotificationSender.notifyStockEntryUpdated(supplierNo, itemNo, amount, updatedAt);
 			stockRepository.save(stockEntry);
 		}
 		catch (StaleStockDataException ex)
