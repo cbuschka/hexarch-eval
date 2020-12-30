@@ -3,10 +3,12 @@ package com.github.cbuschka.hexarch_eval.secondary.storage;
 import com.github.cbuschka.hexarch_eval.domain.StockEntry;
 import com.github.cbuschka.hexarch_eval.domain.StockRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
 @Slf4j
+@Transactional
 public class JpaStockRepositoryAdapter implements StockRepository
 {
 	private JpaStockRepository jpaStockRepository;

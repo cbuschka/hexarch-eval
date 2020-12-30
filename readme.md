@@ -20,6 +20,7 @@ mvn verify
 
 ## Questions
 * Who controls the transaction? Currently it is duplicated in primary actors.
+  * Transaction logic is now controlled by secondary actors, as this matches modern distributed systems' reality.
 * Is introduction of an interface (compile time dependency) really inversion of the dependency direction? Or is an interface more than a code reference?
 * Do I really need the extra interfaces introduced for a single implementation? Ist referencing the interface of the implementation ok?
 * How do I prevent copying objects because of port boundaries?
