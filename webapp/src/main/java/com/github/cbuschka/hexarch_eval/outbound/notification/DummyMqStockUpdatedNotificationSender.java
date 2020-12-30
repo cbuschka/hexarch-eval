@@ -1,4 +1,4 @@
-package com.github.cbuschka.hexarch_eval.secondary.notification;
+package com.github.cbuschka.hexarch_eval.outbound.notification;
 
 import com.github.cbuschka.hexarch_eval.domain.StockUpdatedNotificationSender;
 

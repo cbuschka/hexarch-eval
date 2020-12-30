@@ -1,4 +1,4 @@
-package com.github.cbuschka.hexarch_eval.primary.web;
+package com.github.cbuschka.hexarch_eval.inbound.web;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

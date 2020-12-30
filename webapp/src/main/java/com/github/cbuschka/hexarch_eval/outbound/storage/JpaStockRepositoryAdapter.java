@@ -1,4 +1,4 @@
-package com.github.cbuschka.hexarch_eval.secondary.storage;
+package com.github.cbuschka.hexarch_eval.outbound.storage;
 
 import com.github.cbuschka.hexarch_eval.domain.StockEntry;
 import com.github.cbuschka.hexarch_eval.domain.StockRepository;

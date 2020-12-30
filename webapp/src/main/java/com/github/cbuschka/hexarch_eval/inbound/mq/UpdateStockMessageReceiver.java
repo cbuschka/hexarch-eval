@@ -1,4 +1,4 @@
-package com.github.cbuschka.hexarch_eval.primary.mq;
+package com.github.cbuschka.hexarch_eval.inbound.mq;
 
 import com.github.cbuschka.hexarch_eval.domain.UpdateStockUseCase;
 import org.springframework.beans.factory.annotation.Autowired;

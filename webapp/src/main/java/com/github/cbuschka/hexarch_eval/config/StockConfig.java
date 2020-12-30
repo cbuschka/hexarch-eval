@@ -1,10 +1,10 @@
-package com.github.cbuschka.hexarch_eval.infrastructure;
+package com.github.cbuschka.hexarch_eval.config;
 
 import com.github.cbuschka.hexarch_eval.domain.StockUpdatedNotificationSender;
 import com.github.cbuschka.hexarch_eval.domain.UpdateStockUseCase;
-import com.github.cbuschka.hexarch_eval.secondary.notification.DummyMqStockUpdatedNotificationSender;
-import com.github.cbuschka.hexarch_eval.secondary.storage.JpaStockRepository;
-import com.github.cbuschka.hexarch_eval.secondary.storage.JpaStockRepositoryAdapter;
+import com.github.cbuschka.hexarch_eval.outbound.notification.DummyMqStockUpdatedNotificationSender;
+import com.github.cbuschka.hexarch_eval.outbound.storage.JpaStockRepository;
+import com.github.cbuschka.hexarch_eval.outbound.storage.JpaStockRepositoryAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

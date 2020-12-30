@@ -14,12 +14,12 @@ mvn verify
 
 ## Packages
 * [...domain](./domain/src/main/java/com/github/cbuschka/hexarch_eval/domain/) - the core domain logic
-* [...primary](./webapp/src/main/java/com/github/cbuschka/hexarch_eval/primary/) - primary actors, also called drivers; a web controller and a mq subscriber
-* [...secondary](./webapp/src/main/java/com/github/cbuschka/hexarch_eval/secondary/) - secondary actors, also called drivens; a jpa repository and a mq publisher
-* [...infrastructure](./webapp/src/main/java/com/github/cbuschka/hexarch_eval/infrastructure/) - spring plumbing
+* [...inbound](./webapp/src/main/java/com/github/cbuschka/hexarch_eval/inbound/) - inbound adapters (alias primary actors or drivers): a web controller and a mq subscriber
+* [...outbound](./webapp/src/main/java/com/github/cbuschka/hexarch_eval/outbound/) - outbound adapters (alias secondary actors, or drivens): a jpa repository and a mq publisher
+* [...config](./webapp/src/main/java/com/github/cbuschka/hexarch_eval/config/) - spring plumbing
 
 ## Questions
-* Who controls the transaction? Currently it is duplicated in primary actors.
+* Who controls the transaction? Currently it is duplicated in inbound adapters.
   * Transaction logic is now controlled by secondary actors, as this matches modern distributed systems' reality.
 * Is introduction of an interface (compile time dependency) really inversion of the dependency direction? Or is an interface more than a code reference?
 * Do I really need the extra interfaces introduced for a single implementation? Ist referencing the interface of the implementation ok?

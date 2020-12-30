@@ -1,4 +1,4 @@
-package com.github.cbuschka.hexarch_eval.secondary.storage;
+package com.github.cbuschka.hexarch_eval.outbound.storage;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,7 +14,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import java.util.Date;
-import java.util.UUID;
 
 @NoArgsConstructor
 @Getter

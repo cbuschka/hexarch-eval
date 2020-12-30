@@ -1,4 +1,4 @@
-package com.github.cbuschka.hexarch_eval.primary.mq;
+package com.github.cbuschka.hexarch_eval.inbound.mq;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
