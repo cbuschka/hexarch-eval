@@ -13,10 +13,10 @@ mvn verify
 ```
 
 ## Packages
-* [...core](./src/main/java/com/github/cbuschka/hexarch_eval/core/) - the core domain logic
-* [...primary](./src/main/java/com/github/cbuschka/hexarch_eval/primary/) - primary actors, also called drivers; a web controller and a mq subscriber
-* [...secondary](./src/main/java/com/github/cbuschka/hexarch_eval/secondary/) - secondary actors, also called drivens; a jpa repository and a mq publisher
-* [...infrastructure](./src/main/java/com/github/cbuschka/hexarch_eval/infrastructure/) - spring plumbing
+* [...domain](./domain/src/main/java/com/github/cbuschka/hexarch_eval/domain/) - the core domain logic
+* [...primary](./webapp/src/main/java/com/github/cbuschka/hexarch_eval/primary/) - primary actors, also called drivers; a web controller and a mq subscriber
+* [...secondary](./webapp/src/main/java/com/github/cbuschka/hexarch_eval/secondary/) - secondary actors, also called drivens; a jpa repository and a mq publisher
+* [...infrastructure](./webapp/src/main/java/com/github/cbuschka/hexarch_eval/infrastructure/) - spring plumbing
 
 ## Questions
 * Who controls the transaction? Currently it is duplicated in primary actors.
