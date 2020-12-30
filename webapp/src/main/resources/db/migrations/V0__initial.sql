@@ -1,6 +1,7 @@
 create table stock_entry
 (
     id               identity primary key,
+    version          bigint      not null check ( version > 0 ),
     supplier_no      varchar(80) not null,
     item_no          varchar(80) not null,
     amount           int         not null check ( amount >= 0 ),

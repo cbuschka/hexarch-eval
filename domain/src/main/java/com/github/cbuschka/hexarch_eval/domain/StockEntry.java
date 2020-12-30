@@ -17,9 +17,11 @@ public class StockEntry
 
 	private Date stockUpdatedAt;
 
+	private long versionLoaded;
+
 	public StockEntry(String supplierNo, String itemNo)
 	{
-		this(supplierNo, itemNo, 0, null);
+		this(supplierNo, itemNo, 0, null, 0);
 	}
 
 	public void update(int amount, Date stockUpdatedAt) throws StaleStockDataException

@@ -30,6 +30,7 @@ mvn verify
 * Is hexegonal architecture overkill? Especially in the context of small microservices?
 * Where to put retry logic? 
 * How to implement optimistic locking?
+  * be pragmatic, add version column to domain object
 * Where to place security checks?
 
 ## References

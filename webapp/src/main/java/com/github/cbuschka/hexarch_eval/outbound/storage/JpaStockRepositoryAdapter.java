@@ -3,6 +3,7 @@ package com.github.cbuschka.hexarch_eval.outbound.storage;
 import com.github.cbuschka.hexarch_eval.domain.StockEntry;
 import com.github.cbuschka.hexarch_eval.domain.StockRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.dao.ConcurrencyFailureException;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
@@ -29,7 +30,7 @@ public class JpaStockRepositoryAdapter implements StockRepository
 	private StockEntry toDto(JpaStockEntryEntity entity)
 	{
 		return new StockEntry(entity.getSupplierNo(), entity.getItemNo(),
-				entity.getAmount(), entity.getStockUpdatedAt());
+				entity.getAmount(), entity.getStockUpdatedAt(), entity.getVersion());
 	}
 
 	@Override
@@ -37,8 +38,13 @@ public class JpaStockRepositoryAdapter implements StockRepository
 	{
 		JpaStockEntryEntity entity = this.jpaStockRepository.findBySupplierNoAndItemNo(dto.getSupplierNo(), dto.getItemNo())
 				.orElseGet(() -> new JpaStockEntryEntity(dto.getSupplierNo(), dto.getItemNo()));
+		if (dto.getVersionLoaded() != entity.getVersion())
+		{
+			throw new ConcurrencyFailureException("Stock entry has been modified in the mean time. Try again.");
+		}
 		entity.setAmount(dto.getAmount());
 		entity.setStockUpdatedAt(dto.getStockUpdatedAt());
+		entity.incVersion();
 		this.jpaStockRepository.save(entity);
 
 		log.info("Stock entry {} saved.", entity);
