@@ -27,6 +27,7 @@ mvn verify
 * Are spring data JPA repository and entity with annotations part of core domain?
 * Is an isolated core domain with methods and data combined really worth the hassle? What's about functional decomposition into use cases, what keeps the classes small?
 * Is hexegonal architecture overkill? Especially in the context of small microservices?
+* Where to put retry logic? 
 
 ## References
 * [My preferred walk through](https://hackernoon.com/decoupling-your-technical-code-from-your-business-logic-with-the-hexagonal-architecture-c73y23zs4)
