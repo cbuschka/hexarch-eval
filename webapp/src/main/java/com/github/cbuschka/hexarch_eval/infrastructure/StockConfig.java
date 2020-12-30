@@ -1,7 +1,7 @@
 package com.github.cbuschka.hexarch_eval.infrastructure;
 
-import com.github.cbuschka.hexarch_eval.core.StockUpdatedNotificationSender;
-import com.github.cbuschka.hexarch_eval.core.UpdateStockUseCase;
+import com.github.cbuschka.hexarch_eval.domain.StockUpdatedNotificationSender;
+import com.github.cbuschka.hexarch_eval.domain.UpdateStockUseCase;
 import com.github.cbuschka.hexarch_eval.secondary.notification.DummyMqStockUpdatedNotificationSender;
 import com.github.cbuschka.hexarch_eval.secondary.storage.JpaStockRepository;
 import com.github.cbuschka.hexarch_eval.secondary.storage.JpaStockRepositoryAdapter;

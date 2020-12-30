@@ -1,6 +1,6 @@
 package com.github.cbuschka.hexarch_eval.secondary.notification;
 
-import com.github.cbuschka.hexarch_eval.core.StockUpdatedNotificationSender;
+import com.github.cbuschka.hexarch_eval.domain.StockUpdatedNotificationSender;
 
 import java.util.Date;
 

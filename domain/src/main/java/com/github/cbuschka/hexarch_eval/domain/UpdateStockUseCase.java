@@ -1,4 +1,4 @@
-package com.github.cbuschka.hexarch_eval.core;
+package com.github.cbuschka.hexarch_eval.domain;
 
 import java.util.Date;
 

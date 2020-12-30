@@ -1,6 +1,6 @@
 package com.github.cbuschka.hexarch_eval.primary.web;
 
-import com.github.cbuschka.hexarch_eval.core.UpdateStockUseCase;
+import com.github.cbuschka.hexarch_eval.domain.UpdateStockUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.support.TransactionTemplate;

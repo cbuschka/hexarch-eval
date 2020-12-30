@@ -1,7 +1,7 @@
 package com.github.cbuschka.hexarch_eval.secondary.storage;
 
-import com.github.cbuschka.hexarch_eval.core.StockEntry;
-import com.github.cbuschka.hexarch_eval.core.StockRepository;
+import com.github.cbuschka.hexarch_eval.domain.StockEntry;
+import com.github.cbuschka.hexarch_eval.domain.StockRepository;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Optional;
