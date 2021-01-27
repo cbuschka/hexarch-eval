@@ -15,6 +15,9 @@
 mvn verify
 ```
 
+## Overview
+![Overview](./doc/overview.png)
+
 ## Packages
 
 * [...domain](./domain/src/main/java/com/github/cbuschka/hexarch_eval/domain/) - the core domain logic
